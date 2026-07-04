@@ -7,8 +7,9 @@ import {
   query,
   onSnapshot,
   serverTimestamp,
+  deleteDoc,
+  doc,
 } from "firebase/firestore";
-
 import { auth, db } from "../firebase";
 
 function Chat() {
@@ -58,6 +59,14 @@ function Chat() {
     });
 
     setMessage("");
+  };
+
+  const deleteMessage = async (id) => {
+    try {
+      await deleteDoc(doc(db, "messages", id));
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   const logout = async () => {
@@ -110,7 +119,17 @@ function Chat() {
                 }}
               >
                 <small style={styles.user}>{msg.user}</small>
+
                 <div>{msg.text}</div>
+
+                {msg.user === auth.currentUser.email && (
+                  <button
+                    style={styles.deleteBtn}
+                    onClick={() => deleteMessage(msg.id)}
+                  >
+                    🗑 Delete
+                  </button>
+                )}
               </div>
             ))
           )}
@@ -231,6 +250,18 @@ const styles = {
     borderRadius: "25px",
     cursor: "pointer",
     fontWeight: "bold",
+  },
+
+  deleteBtn: {
+    marginTop: "8px",
+    padding: "5px 10px",
+    background: "#d9534f",
+    color: "white",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    fontSize: "12px",
+    alignSelf: "flex-end",
   },
 };
 
