@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { auth } from "./firebase";
 
 import Auth from "./pages/AuthPage";
-import Chat from "./pages/ChatPage";
+import Chat from "./pages/Chatpages";
 export default function App() {
   const [user, setUser] = useState(undefined);
 
