@@ -72,7 +72,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(135deg, #07255e, #dfe6e5)",
+    background: "linear-gradient(135deg, #03533b, #dfe6e5)",
     fontFamily: "Arial",
   },
   card: {
