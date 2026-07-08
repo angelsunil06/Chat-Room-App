@@ -78,7 +78,7 @@ function Chat() {
     <div style={styles.page}>
       <div style={styles.chatContainer}>
         <div style={styles.header}>
-          <h2>💬 React Chat</h2>
+          <h2>React Chat</h2>
 
           <div>
             <select
@@ -114,7 +114,7 @@ function Chat() {
                       : "flex-start",
                   background:
                     msg.user === auth.currentUser.email
-                      ? "#DCF8C6"
+                      ? "#d3e7c4"
                       : "#ffffff",
                 }}
               >
